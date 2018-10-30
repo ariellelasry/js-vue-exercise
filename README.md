@@ -1,1 +1,3 @@
-# js-vue-exercise
+# JavaSrcipt exercise
+
+# Vue.JS exercise
