@@ -1,4 +1,4 @@
-# JavaSrcipt exercise
+# JavaScript exercise
 
 1. Clone the repository
 
