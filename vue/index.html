@@ -5,22 +5,39 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      List of people:
+      <ul id="example-1">
+        <li v-for="person in persons">
+          {{ person.name }}
+        </li>
+      </ul>
       <br/>
-      <button v-on:click="clickMe">Click</button>
+      <button v-on:click="clickMe">Get five names</button>
     </div>
 
     <script>
     var app = new Vue({
       el: "#app",
       data: {
-        message: "Hello Vue!"
+        persons: []
       },
       methods: {
-          clickMe: function() {
-              alert("Button clicked");
+        clickMe: function() {
+          for (var i = 1; i <= 5; i++) {
+            this.persons = [];
+            this.getPerson(i);
           }
+        },
+        getPerson: function(i) {
+          fetch("https://swapi.co/api/people/" + i + "/")
+          .then(response =>
+              response.json().then(data => ({
+                  person: data,
+                  status: response.status}))
+          .then(res => {
+            this.persons.push(res.person)}));
         }
+      }
     })
     </script>
   </body>
