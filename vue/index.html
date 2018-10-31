@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Vue.js Exercise</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+      <br/>
+      <button v-on:click="clickMe">Click</button>
+    </div>
+
+    <script>
+    var app = new Vue({
+      el: "#app",
+      data: {
+        message: "Hello Vue!"
+      },
+      methods: {
+          clickMe: function() {
+              alert("Button clicked");
+          }
+        }
+    })
+    </script>
+  </body>
+</html>
